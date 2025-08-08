@@ -16,7 +16,7 @@ int main(){
                 std::cout << "You have a bad day." << '\n';
 
                 while(number == 6){
-                        std::cout << "Hello World" << '\n'; // Inf. Loop pre matka
+                        std::cout << "Hello World" << '\n'; // Inf. Loop
                 }
 
         } else {

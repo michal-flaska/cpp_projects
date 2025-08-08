@@ -9,11 +9,11 @@ int main() {
         bool isInjectionSuccessful = true;
         std::string injectionState;
 
-        if(isInjectionSuccessful == true){
-                injectionState = "Successful";
-        }
-        else{
-                injectionState = "Failed";
+        switch(isInjectionSuccessful){
+                case true: injectionState = "Successful";
+                        break;
+                default: injectionState = "Failed";
+                        break;
         }
 
         std::cout << "Cheat injection: " << injectionState << "!" << '\n';
