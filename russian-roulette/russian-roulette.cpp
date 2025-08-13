@@ -4,23 +4,23 @@ int main(){
         
         int number;
 
-        std::cout << "Enter a number from 1 to 10: ";
+        const int MIN_NUMBER = 1;
+        const int MAX_NUMBER = 10;
+        const int NUMBER_OF_DEATH = 6;
+
+        std::cout << "Enter a number from " << MIN_NUMBER << " to " << MAX_NUMBER << ": ";
         std::cin >> number;
 
-        if(number >= 1 && number <= 10 && number != 6){
+        if(number >= MIN_NUMBER && number <= MAX_NUMBER && number != NUMBER_OF_DEATH){
 
-                std::cout << "You entered a valid number." << '\n';
+                std::cout << "You are safe" << '\n';
 
         } else if (number == 6){
 
-                std::cout << "You have a bad day." << '\n';
-
-                while(number == 6){
-                        std::cout << "Hello World" << '\n'; // Inf. Loop
-                }
+                std::cout << "You died" << '\n';
 
         } else {
-                std::cout << "You entered an invalid number." << '\n';
+                std::cout << "Invalid number, only numbers from " << MIN_NUMBER << " to " << MAX_NUMBER << " are allowed" << '\n';
         }
 
 }
