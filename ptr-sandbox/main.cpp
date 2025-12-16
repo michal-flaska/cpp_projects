@@ -2,92 +2,103 @@
 #include <iomanip>
 #include <cstring>
 
-using namespace std;
-
 struct Player {
     int hp;
     float speed;
     char tag;
 };
 
-void line() {
-    cout << "-----------------------------\n";
+void section(const char* title) {
+    std::cout << "\n=== " << title << " ===\n";
 }
 
-void printBytes(void* ptr, size_t size) {
-    unsigned char* b = (unsigned char*)ptr;
-    for (size_t i = 0; i < size; i++) {
-        cout << hex << setw(2) << setfill('0') << (int)b[i] << " ";
+void kv(const char* k, const void* v) {
+    std::cout << std::left << std::setw(18) << k << ": " << v << '\n';
+}
+
+void kvi(const char* k, int v) {
+    std::cout << std::left << std::setw(18) << k << ": " << v << '\n';
+}
+
+void kvf(const char* k, float v) {
+    std::cout << std::left << std::setw(18) << k << ": " << v << '\n';
+}
+
+void bytes(const void* ptr, std::size_t size) {
+    const unsigned char* b = static_cast<const unsigned char*>(ptr);
+    for (std::size_t i = 0; i < size; i++) {
+        std::cout << std::hex << std::setw(2) << std::setfill('0')
+                  << static_cast<int>(b[i]) << ' ';
     }
-    cout << dec << "\n";
+    std::cout << std::dec << '\n';
 }
 
 int main() {
-    cout << "ptr_sandbox\n";
-    line();
+    std::cout << "ptr_sandbox\n";
 
-    // stack var
+    // stack
+    section("stack variable");
     int a = 5;
     int* p = &a;
 
-    cout << "stack int a\n";
-    cout << "value: " << a << "\n";
-    cout << "&a: " << &a << "\n";
-    cout << "p: " << p << "\n";
-    cout << "*p: " << *p << "\n";
-    line();
+    kvi("a", a);
+    kv("&a", &a);
+    kv("p", p);
+    kvi("*p", *p);
 
     // pointer to pointer
+    section("pointer to pointer");
     int** pp = &p;
-    cout << "pointer to pointer\n";
-    cout << "pp: " << pp << "\n";
-    cout << "*pp: " << *pp << "\n";
-    cout << "**pp: " << **pp << "\n";
-    line();
 
-    // heap alloc
+    kv("pp", pp);
+    kv("*pp", *pp);
+    kvi("**pp", **pp);
+
+    // heap
+    section("heap allocation");
     int* h = new int(42);
-    cout << "heap int\n";
-    cout << "h: " << h << "\n";
-    cout << "*h: " << *h << "\n";
+
+    kv("h", h);
+    kvi("*h", *h);
+
     delete h;
-    cout << "after delete h still points to: " << h << "\n";
-    line();
+    kv("h after delete", h);
 
     // array decay
+    section("array memory");
     int arr[5] = {1,2,3,4,5};
-    cout << "array memory\n";
+
     for (int i = 0; i < 5; i++) {
-        cout << "arr[" << i << "] = " << arr[i]
-             << " | &arr[" << i << "] = " << &arr[i]
-             << " | arr+i = " << (arr + i)
-             << " | *(arr+i) = " << *(arr + i) << "\n";
+        std::cout
+            << "arr[" << i << "]  "
+            << "val=" << std::setw(2) << arr[i] << "  "
+            << "addr=" << &arr[i] << "  "
+            << "arr+i=" << (arr + i) << '\n';
     }
-    line();
 
     // struct layout
+    section("struct layout");
     Player pl = {100, 3.5f, 'A'};
-    cout << "struct Player\n";
-    cout << "sizeof Player: " << sizeof(Player) << "\n";
-    cout << "&pl: " << &pl << "\n";
-    cout << "&pl.hp: " << &pl.hp << "\n";
-    cout << "&pl.speed: " << &pl.speed << "\n";
-    cout << "&pl.tag: " << (void*)&pl.tag << "\n";
-    line();
+
+    kvi("sizeof(Player)", sizeof(Player));
+    kv("&pl", &pl);
+    kv("&pl.hp", &pl.hp);
+    kv("&pl.speed", &pl.speed);
+    kv("&pl.tag", static_cast<void*>(&pl.tag));
 
     // raw bytes
-    cout << "raw memory of Player\n";
-    printBytes(&pl, sizeof(Player));
-    line();
+    section("raw bytes of Player");
+    bytes(&pl, sizeof(Player));
 
-    // mutate via pointer
+    // mutation
+    section("mutation via pointer");
     int x = 10;
     int* xp = &x;
-    cout << "before: x = " << x << "\n";
-    *xp = 99;
-    cout << "after via pointer: x = " << x << "\n";
-    line();
 
-    cout << "done\n";
+    kvi("x before", x);
+    *xp = 99;
+    kvi("x after", x);
+
+    std::cout << "\nend\n";
     return 0;
 }
