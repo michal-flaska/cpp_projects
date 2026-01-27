@@ -5,6 +5,8 @@
 #include <cstdint>
 #include <new>
 
+// This thing is pure memory porn -- My friend
+
 struct Player {
     int hp;
     float speed;
