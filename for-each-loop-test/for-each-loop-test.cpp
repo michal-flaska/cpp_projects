@@ -9,7 +9,7 @@ int main(){
         // calculate array size automatically
         int arraySize = sizeof(names) / sizeof(names[0]);
 
-        std::cout << "Enter a name to search: ";
+        std::cout << "Enter a name to search (case sensitive): ";
         std::cin >> nameToSearch;
 
         for(int i = 0; i < arraySize; i++){
@@ -17,9 +17,11 @@ int main(){
                         std::cout << names[i] << " found at index " << i << std::endl;
                         break;
                 }
+                else{
+                        std::cout << "name wasnt found" << '\n';
+                        break;
+                }
         }
-
-        std::cout << "name wasnt found" << '\n';
 
         return 0;
 }
