@@ -19,51 +19,28 @@
 
 #include <iostream>
 #include <string>
-#include <vector>
-
-std::vector<char> stringToCharArray(const std::string& str) {
-    return std::vector<char>(str.begin(), str.end());
-}
-
-std::vector<char> sort(std::vector<char> array, int size){ // this is from my c++ tutorial notes
-
-        int temp;
-        for(int i = 0; i < size - 1; i++){
-                for(int j = 0; j < size - i - 1; j++){
-                        if(array[j] > array[j + 1]){ // if we'd like to change it to descending order, we can change the '>' operator to '<' at this line
-                                temp = array [j];
-                                array[j] = array[j + 1];
-                                array[j + 1] = temp;
-                        }
-                }
-        }
-}
+#include <algorithm>    // For std::sort
 
 bool isAnagram(std::string s1, std::string s2){
-
-        if(s1.length() == s2.length()){
-                for(int i = 0; i < s1.length(), i++){
-                        if(s1[i] == s2[i]){
-                                continue;
-                        }
-                        else{
-                                return false;
-                        }
-                }
+        if(s1.length() != s2.length()){
+                return false;
         }
 
-        return true;
+        std::sort(s1.begin(), s1.end());
+        std::sort(s2.begin(), s2.end());
+
+        return s1 == s2;
 }
 
 int main(){
-
-        // std::string s1 = "hello";
-        // std::string s2 = "world";
-
         std::string s1 = "listen";
         std::string s2 = "silent";
 
-        isAnagram(sort(stringToCharArray(s1, s1.length())), sort(stringToCharArray(s2, s2.length())));
+        std::cout << isAnagram(s1, s2) << '\n';
 
         return 0;
 }
+
+// i thought that when comparing strings, it compares the ascii values...
+// thats why i was overcomplicating things
+// now i know i was doing wrong
