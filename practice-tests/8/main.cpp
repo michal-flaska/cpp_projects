@@ -15,21 +15,35 @@
 // This one requires more thinking
 
 #include <iostream>
+#include <string>
 
 std::string longestWord(std::string s){
 
-        // taking a break, but ill write how can i do this
-        // we will have two temp variables for storing current longest word and how many characters it have
-        // we will move next to each word,
-        //      if the next word is longer than the current longest, replace the longest word temp variable and its character count temp var
-        //      if not, move to next word
+        std::string currentWord = "";
+        std::string longestWord = "";
 
-        return s;
+        for(int i = 0; i < s.length(); i++){
+                if(s[i] == ' '){
+                        if(currentWord.length() > longestWord.length()){
+                                longestWord = currentWord;
+                        }
+                        currentWord.clear();
+                }
+                else{
+                        currentWord += s[i];
+                }
+        }
+
+        if(currentWord.length() > longestWord.length()){
+                longestWord = currentWord;
+        }
+
+        return longestWord;
 }
 
 int main(){
 
-        std::string s = "hello world test";
+        std::string s = "howdy test string";
 
         std::cout << longestWord(s);
 
