@@ -36,7 +36,7 @@ int main(){
         std::string s1 = "listen";
         std::string s2 = "silent";
 
-        std::cout << isAnagram(s1, s2) << '\n';
+        std::cout << isAnagram(s1, s2) << '\n'; // should return 1
 
         return 0;
 }
@@ -44,3 +44,9 @@ int main(){
 // i thought that when comparing strings, it compares the ascii values...
 // thats why i was overcomplicating things
 // now i know i was doing wrong
+
+// Quick summary:
+// - s1 == s2 compares strings character-by-character in order
+// - It does NOT sum ASCII values
+// - "abc" == "abc" is true
+// - "abc" == "acb" is false (even though same letters)-
