@@ -25,33 +25,29 @@
 #include <vector>
 
 void countChars(std::string s){
-    // For each character in the string
-    for(int i = 0; i < s.length(); i++){
-        char c = s[i];  // Current character
 
-        // Did we already count this character?
-        // Check if it appeared before index i
-        bool alreadyCounted = false;
-        for(int k = 0; k < i; k++){
-            if(s[k] == c){
-                alreadyCounted = true;
-                break;
-            }
+        for(int i = 0; i < s.length(); i++){
+                char c = s[i];
+
+                bool alreadyCounted = false;
+                for(int k = 0; k < i; k++){
+                        if(s[k] == c){
+                                alreadyCounted = true;
+                                break;
+                        }
+                }
+
+                if(alreadyCounted) continue;
+
+                int count = 0;
+                for(int j = 0; j < s.length(); j++){
+                        if(s[j] == c){
+                                count++;
+                        }
+                }
+
+                std::cout << c << ": " << count << '\n';
         }
-
-        // If we already counted it, skip
-        if(alreadyCounted) continue;
-
-        // Count how many times 'c' appears in the whole string
-        int count = 0;
-        for(int j = 0; j < s.length(); j++){
-            if(s[j] == c){
-                count++;
-            }
-        }
-
-        std::cout << c << ": " << count << '\n';
-    }
 }
 
 int main(){
