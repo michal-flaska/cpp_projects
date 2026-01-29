@@ -18,27 +18,27 @@
 #include <string>
 
 std::string removeDuplicates(std::string s){
-    std::string result = "";
+        std::string result = "";
 
-    for(int i = 0; i < s.length(); i++){
-        char c = s[i];
+        for(int i = 0; i < s.length(); i++){
+                char c = s[i];
 
-        // check if char c appeared before index i
-        bool seenBefore = false;
-        for(int j = 0; j < i; j++){  // only check BEFORE current position
-            if(s[j] == c){
-                seenBefore = true;
-                break;
-            }
+                // check if char c appeared before index i
+                bool seenBefore = false;
+                for(int j = 0; j < i; j++){  // only check BEFORE current position
+                        if(s[j] == c){
+                                seenBefore = true;
+                                break;
+                        }
+                }
+
+                // if we havent seen it before then add it
+                if(seenBefore != true){
+                        result += c;
+                }
         }
 
-        // if we havent seen it before then add it
-        if(seenBefore != true){
-            result += c;
-        }
-    }
-
-    return result;
+        return result;
 }
 
 int main(){
