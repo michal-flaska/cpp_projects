@@ -6,7 +6,7 @@
 
 // Function: `std::string removeDuplicates(std::string s)`
 
-// **Hints:**
+// Hints:
 // - Loop through each character
 // - For each character, check if it appeared earlier in the string
 // - If it's the first time seeing it, add it to result
@@ -18,24 +18,34 @@
 #include <string>
 
 std::string removeDuplicates(std::string s){
+    std::string result = "";
 
-        std::string result = "";
+    for(int i = 0; i < s.length(); i++){
+        char c = s[i];
 
-        for(int i = 0; i < s.length(); i++){
-
-                char c = s[i];
-
-                // Check if 'c' already appeared before index i. If not, add it to result
-
-                // taking a break
+        // check if char c appeared before index i
+        bool seenBefore = false;
+        for(int j = 0; j < i; j++){  // only check BEFORE current position
+            if(s[j] == c){
+                seenBefore = true;
+                break;
+            }
         }
 
-        return result;
+        // if we havent seen it before then add it
+        if(seenBefore != true){
+            result += c;
+        }
+    }
+
+    return result;
 }
 
 int main(){
 
         std::string s = "hello";
+
+        std::cout << removeDuplicates(s);
 
         return 0;
 }
