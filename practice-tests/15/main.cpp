@@ -24,3 +24,61 @@
 // #include <string>
 // #include <algorithm>
 
+std::vector<std::vector<int>> findPairs(std::vector<int> nums, int target){
+
+        std::vector<std::vector<int>> result; // { {0, 0}, {0, 0} };
+
+        for(int i = 0; i < nums.size(); i++){
+
+                for(int j = i + 1; j < nums.size(); j++){
+                        if(nums[i] + nums[j] == target && i < j /* so we dont count the same pair twice */){
+                                result.push_back({nums[i], nums[j]});
+                        }
+                }
+
+        }
+
+        return result;
+}
+
+void printVector(std::vector<int> v){ // copypasted this from problem 13, 14
+        std::cout << "{";
+        for(int i = 0; i < v.size(); i++){
+                std::cout << v[i];
+                if(i < v.size() - 1){
+                        std::cout << ", ";
+                }
+        }
+        std::cout << "}";
+}
+
+void print2DVector(const std::vector<std::vector<int>> &v){     // copypasted this from problem 13, 14 - and told chatgpt to modify it it to work with 2d vectors
+                                                                //                                                ^ ^ ^ ^ because im lazy :/
+                                                                // should print:
+                                                                // {
+                                                                //   {1, 2, 3},
+                                                                //   {4, 5, 6},
+                                                                //   {7, 8, 9}
+                                                                // }
+        std::cout << "{" << '\n';
+        for (int i = 0; i < v.size(); i++) {
+                std::cout << "  {";
+                for (int j = 0; j < v[i].size(); j++) {
+                        std::cout << v[i][j];
+                        if (j < v[i].size() - 1){
+                                std::cout << ", ";
+                        }
+                }
+                std::cout << "}";
+                if (i < v.size() - 1){
+                        std::cout << ",";
+                }
+                std::cout << '\n';
+        }
+        std::cout << "}";
+}
+
+int main(){
+
+        std::vector<int> v = {2, 7, 11, 15};
+        int t = 18; // target
