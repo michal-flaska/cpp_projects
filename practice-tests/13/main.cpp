@@ -14,12 +14,14 @@
 // - Element at index i moves to index (i + k) % arr.size()
 
 #include <iostream>
-#include <string>
+// #include <string>
 #include <vector>
 
 std::vector<int> rotateArray(std::vector<int> v, int k){
 
         std::vector<int> result = {};
+
+        k = k % v.size();
 
         for(int i = v.size() - k; i < v.size(); i++){
                 result.push_back(v[i]);
@@ -33,21 +35,14 @@ std::vector<int> rotateArray(std::vector<int> v, int k){
 }
 
 void printVector(std::vector<int> v){
-        for(int z = 0; z < v.size(); z++){
-                if(z == 0){
-                        std::cout << "{" << v[z] << ", ";
-                }
-                else{
-                        if(z == v.size() - 1){
-                                std::cout << v[z] << "}";
-                                break;
-                        }
-                        else{
-                                std::cout << v[z] << ", ";
-                        }
-                }
+        std::cout << "{";
+        for(int i = 0; i < v.size(); i++){
+                std::cout << v[i];
+                if(i < v.size() - 1) std::cout << ", ";
         }
+        std::cout << "}";
 }
+
 
 int main(){
 
