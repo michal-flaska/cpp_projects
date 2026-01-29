@@ -82,3 +82,13 @@ int main(){
 
         std::vector<int> v = {2, 7, 11, 15};
         int t = 18; // target
+
+        std::cout << "Original Vector: ";
+        printVector(v);
+        std::cout << '\n';
+
+        std::cout << "Modified Vector: ";
+        print2DVector(findPairs(v, t));
+
+        return 0;
+}
