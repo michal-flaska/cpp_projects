@@ -11,13 +11,24 @@
 // - Return the first one that appears exactly once
 
 #include "first_unique.h"
-#include <iostream>
 
-int main(){
+char firstUnique(std::string s){
 
-        std::string s = "leetcode";
+        for(int i = 0; i < s.length(); i++){
+                char c = s[i];
 
-        std::cout << firstUnique(s);
+                int count = 0;
+                for(int j = 0; j < s.length(); j++){
+                        if(s[j] == c){
+                                count++;
+                        }
+                }
 
-        return 0;
+                if(count == 1){
+                        return c;
+                }
+        }
+
+        return ' ';
 }
+
