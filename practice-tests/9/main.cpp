@@ -43,7 +43,7 @@ int main(){
 
 // i thought that when comparing strings, it compares the ascii values...
 // thats why i was overcomplicating things
-// now i know i was doing wrong
+// now i know what i was doing wrong
 
 // Quick summary:
 // - s1 == s2 compares strings character-by-character in order
