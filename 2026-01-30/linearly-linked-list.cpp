@@ -74,7 +74,7 @@ public:
                 size++;
         }
 
-        // rint from start to end
+        //print from start to end
         void print(){
                 Node *current = head;
                 while (current != nullptr){
@@ -109,3 +109,43 @@ int main()
 
         return 0;
 }
+
+/*
+notes from reddit, geeksforgeeks and stackoverflow
+
+what is a linked list?
+
+Imagine you have 3 boxes with notes inside:
+
+Box A: "Hi"
+Box B: "My"
+Box C: "Name"
+
+In a normal array, these boxes sit next to each other in memory. Done.
+
+In a linked list, the boxes can be anywhere in memory, but each box has a note that says "next box is at address X":
+
+Box A: "Hi" -> Box B is at address 500
+Box B: "My" -> Box C is at address 200
+Box C: "Name" -> No next box (nullptr)
+
+--------------------------------------------------------------------------------------------------------------------
+
+In a doubly linked list, each box ALSO knows where the previous box is:
+
+Box A: "Hi" -> next: Box B | prev: none
+Box B: "My" -> next: Box C | prev: Box A
+Box C: "Name" -> next: none | prev: Box B
+
+In code:
+
+class Node {
+public:
+    std::string data;  // the actual content ("Hi", "My", "Name")
+    Node* next;        // address of next box
+    Node* prev;        // address of previous box
+};
+
+a node is just one box that knows where the next and previous boxes are
+
+*/
