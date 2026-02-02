@@ -2,8 +2,8 @@
 #include <vector>
 #include <string>
 
-
-int main(){
+int main()
+{
 
         using PlayerID = uint64_t;
         using Position = std::pair<float, float>;

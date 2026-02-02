@@ -1,7 +1,8 @@
 #include <iostream>
 #include <cmath>
 
-int main() {
+int main()
+{
         // Natural log (base e)
         double ln = log(10);
         std::cout << "ln(10) = " << ln << std::endl;

@@ -1,7 +1,8 @@
 #include <iostream>
 #include <string>
 
-int main(){
+int main()
+{
 
         std::string nameToSearch;
         std::string names[] = {"Mike", "Martin", "Oliver", "Miro", "Johnny", "Dominik", "Vojto", "Janci", "Zuzka"};
@@ -12,12 +13,15 @@ int main(){
         std::cout << "Enter a name to search (case sensitive): ";
         std::cin >> nameToSearch;
 
-        for(int i = 0; i < arraySize; i++){
-                if(names[i] == nameToSearch){
+        for (int i = 0; i < arraySize; i++)
+        {
+                if (names[i] == nameToSearch)
+                {
                         std::cout << names[i] << " found at index " << i << std::endl;
                         break;
                 }
-                else{
+                else
+                {
                         std::cout << "name wasnt found" << '\n';
                         break;
                 }

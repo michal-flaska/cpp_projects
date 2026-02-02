@@ -1,14 +1,17 @@
 #include <iostream>
 
-int factorial(int n) {
-    if (n <= 1) return 1;
-    return n * factorial(n - 1);
+int factorial(int n)
+{
+        if (n <= 1)
+                return 1;
+        return n * factorial(n - 1);
 }
 
-int main() {
-    int n = 4;
-    std::cout << "factorial " << n << " is " << factorial(n) << std::endl;
-    return 0;
+int main()
+{
+        int n = 4;
+        std::cout << "factorial " << n << " is " << factorial(n) << std::endl;
+        return 0;
 }
 
 /*

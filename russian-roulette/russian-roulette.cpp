@@ -2,32 +2,36 @@
 #include <cstdlib>
 #include <ctime>
 
-int main() {
-    srand(time(0));
+int main()
+{
+        srand(time(0));
 
-    int bulletPosition = (rand() % 6) + 1;
-    int trigger = 1;
+        int bulletPosition = (rand() % 6) + 1;
+        int trigger = 1;
 
-    std::cout << "Russian Roulette - 6 chambers, 1 bullet" << '\n';
-    std::cout << "Press Enter to pull the trigger..." << '\n';
+        std::cout << "Russian Roulette - 6 chambers, 1 bullet" << '\n';
+        std::cout << "Press Enter to pull the trigger..." << '\n';
 
-    while (trigger <= 6) {
-        std::cin.get();
+        while (trigger <= 6)
+        {
+                std::cin.get();
 
-        if (trigger == bulletPosition) {
-            std::cout << "BANG! You're dead." << '\n';
-            return 0;
+                if (trigger == bulletPosition)
+                {
+                        std::cout << "BANG! You're dead." << '\n';
+                        return 0;
+                }
+
+                std::cout << "Click... you're safe. ";
+                if (trigger < 6)
+                {
+                        std::cout << "Pull again? (Press Enter)" << '\n';
+                }
+                trigger++;
         }
 
-        std::cout << "Click... you're safe. ";
-        if (trigger < 6) {
-            std::cout << "Pull again? (Press Enter)" << '\n';
-        }
-        trigger++;
-    }
-
-    std::cout << "You survived all 6 chambers!" << '\n';
-    return 0;
+        std::cout << "You survived all 6 chambers!" << '\n';
+        return 0;
 }
 
 /*

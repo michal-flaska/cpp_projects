@@ -1,1 +1,0 @@
-int NUMBER_OF_DEATH = 6;
