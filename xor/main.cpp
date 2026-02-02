@@ -53,8 +53,7 @@ int main() {
                   << '\n';
 
         // -----------------------------------------------------------------------------
-        // unfortunately, you can not xor strings so easily like you can string
-        // integers
+        // unfortunately, you can not xor strings so easily like you can xor integers
         // -----------------------------------------------------------------------------
 
         std::string x = "hello world";
