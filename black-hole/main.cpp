@@ -69,10 +69,10 @@ int main() {
 
 // it still looks like a spinning galaxy but im too lazy to fix it
 
-#include <iostream>
-#include <cmath>
-#include <thread>
 #include <chrono>
+#include <cmath>
+#include <iostream>
+#include <thread>
 
 const int w = 80;
 const int h = 30;
@@ -80,20 +80,16 @@ const int h = 30;
 // shade ramp
 const char shades[] = " .,:;irsXA253hMHGS#9B&@";
 
-int main()
-{
+int main() {
         float t = 0.0f;
 
         std::cout << "\033[2J\033[?25l";
 
-        while (true)
-        {
+        while (true) {
                 std::cout << "\033[H";
 
-                for (int y = 0; y < h; y++)
-                {
-                        for (int x = 0; x < w; x++)
-                        {
+                for (int y = 0; y < h; y++) {
+                        for (int x = 0; x < w; x++) {
                                 // normalized coords
                                 float nx = (x - w / 2) / (float)(w / 2);
                                 float ny = (y - h / 2) / (float)(h / 2);
@@ -108,17 +104,12 @@ int main()
                                 float gravity = 1.0f / (r * 6.0f + 0.2f);
 
                                 // disk pattern
-                                float disk =
-                                    sin(spin * 6.0f) *
-                                    exp(-r * 3.0f);
+                                float disk = sin(spin * 6.0f) * exp(-r * 3.0f);
 
-                                float intensity =
-                                    disk * 1.5f +
-                                    gravity * 2.0f;
+                                float intensity = disk * 1.5f + gravity * 2.0f;
 
                                 // event horizon
-                                if (r < 0.15f)
-                                {
+                                if (r < 0.15f) {
                                         std::cout << " ";
                                         continue;
                                 }

@@ -1,9 +1,8 @@
+#include <chrono>
 #include <iostream>
 #include <thread>
-#include <chrono>
 
-int main()
-{
+int main() {
         const int w = 80;
         const int h = 24;
 
@@ -12,14 +11,11 @@ int main()
 
         std::cout << "\033[2J\033[?25l";
 
-        while (true)
-        {
+        while (true) {
                 std::cout << "\033[H";
 
-                for (int j = 0; j < h; j++)
-                {
-                        for (int i = 0; i < w; i++)
-                        {
+                for (int j = 0; j < h; j++) {
+                        for (int i = 0; i < w; i++) {
                                 if (i == x && j == y)
                                         std::cout << "DVD";
                                 else

@@ -1,18 +1,15 @@
-#include <iostream>
-#include <cmath>
-#include <thread>
 #include <chrono>
+#include <cmath>
+#include <iostream>
+#include <thread>
 
 const int w = 80;
 const int h = 30;
 
 // draw sphere using distance + depth
-void drawSphere(char screen[h][w], float cx, float cy, float cz, float r)
-{
-        for (int y = 0; y < h; y++)
-        {
-                for (int x = 0; x < w; x++)
-                {
+void drawSphere(char screen[h][w], float cx, float cy, float cz, float r) {
+        for (int y = 0; y < h; y++) {
+                for (int x = 0; x < w; x++) {
                         float px = (x - w / 2) / 10.0f;
                         float py = (y - h / 2) / 5.0f;
 
@@ -35,14 +32,12 @@ void drawSphere(char screen[h][w], float cx, float cy, float cz, float r)
         }
 }
 
-int main()
-{
+int main() {
         float t = 0;
 
         std::cout << "\033[2J\033[?25l";
 
-        while (true)
-        {
+        while (true) {
                 char screen[h][w];
                 for (int y = 0; y < h; y++)
                         for (int x = 0; x < w; x++)
@@ -61,8 +56,7 @@ int main()
                 drawSphere(screen, x1, y1, 1.0f, 1.0f);
 
                 std::cout << "\033[H";
-                for (int y = 0; y < h; y++)
-                {
+                for (int y = 0; y < h; y++) {
                         for (int x = 0; x < w; x++)
                                 std::cout << screen[y][x];
                         std::cout << "\n";

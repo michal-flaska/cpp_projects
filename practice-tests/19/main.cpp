@@ -1,4 +1,5 @@
-// Write a function that removes all occurrences of a specific value from a vector.
+// Write a function that removes all occurrences of a specific value from a
+// vector.
 
 // Examples:
 // - {1, 2, 3, 2, 4} remove 2 → {1, 3, 4}
@@ -15,23 +16,23 @@
 #include <iostream>
 #include <vector>
 
-void printVector(std::vector<int> v){ // copypasted this from problem 13, 14, 15
+void printVector(
+    std::vector<int> v) {  // copypasted this from problem 13, 14, 15
         std::cout << "{";
-        for(int i = 0; i < v.size(); i++){
+        for (int i = 0; i < v.size(); i++) {
                 std::cout << v[i];
-                if(i < v.size() - 1){
+                if (i < v.size() - 1) {
                         std::cout << ", ";
                 }
         }
         std::cout << "}";
 }
 
-std::vector<int> removeValue(std::vector<int> nums, int val){
-
+std::vector<int> removeValue(std::vector<int> nums, int val) {
         std::vector<int> result = {};
 
-        for(int i = 0; i < nums.size(); i++){
-                if(nums[i] != val){
+        for (int i = 0; i < nums.size(); i++) {
+                if (nums[i] != val) {
                         result.push_back(nums[i]);
                 }
         }
@@ -39,8 +40,7 @@ std::vector<int> removeValue(std::vector<int> nums, int val){
         return result;
 }
 
-int main(){
-
+int main() {
         std::vector<int> v = {1, 2, 3, 2, 4};
         int n = 2;
 

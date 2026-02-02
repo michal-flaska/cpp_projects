@@ -18,9 +18,9 @@
 #include <iostream>
 #include <vector>
 
-bool isSorted(std::vector<int> nums){
-        for(int i = 1; i < nums.size(); i++){
-                if(nums[i - 1] > nums[i]){
+bool isSorted(std::vector<int> nums) {
+        for (int i = 1; i < nums.size(); i++) {
+                if (nums[i - 1] > nums[i]) {
                         return false;
                 }
         }
@@ -28,14 +28,12 @@ bool isSorted(std::vector<int> nums){
         return true;
 }
 
-int main(){
-
+int main() {
         std::vector<int> nums = {1, 2, 3, 4, 5};
 
-        if(isSorted(nums)){
+        if (isSorted(nums)) {
                 std::cout << "Numbers are sorted";
-        }
-        else{
+        } else {
                 std::cout << "Numbers are not sorted";
         }
 

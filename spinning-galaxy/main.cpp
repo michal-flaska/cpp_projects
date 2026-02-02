@@ -1,28 +1,24 @@
-#include <iostream>
-#include <cmath>
-#include <thread>
 #include <chrono>
+#include <cmath>
 #include <cstdlib>
+#include <iostream>
+#include <thread>
 
 const int w = 80;
 const int h = 30;
 
 const char shades[] = " .,:;irsXA253hMHGS#9B&@";
 
-int main()
-{
+int main() {
         float t = 0.0f;
 
         std::cout << "\033[2J\033[?25l";
 
-        while (true)
-        {
+        while (true) {
                 std::cout << "\033[H";
 
-                for (int y = 0; y < h; y++)
-                {
-                        for (int x = 0; x < w; x++)
-                        {
+                for (int y = 0; y < h; y++) {
+                        for (int x = 0; x < w; x++) {
                                 // center coords
                                 float nx = (x - w / 2) / (float)(w / 2);
                                 float ny = (y - h / 2) / (float)(h / 2);
@@ -39,10 +35,7 @@ int main()
                                 // star noise
                                 float stars = (rand() % 1000 == 0) ? 1.5f : 0.0f;
 
-                                float intensity =
-                                    arms * 0.6f * exp(-r * 2) +
-                                    core * 2.0f +
-                                    stars;
+                                float intensity = arms * 0.6f * exp(-r * 2) + core * 2.0f + stars;
 
                                 if (intensity < 0)
                                         intensity = 0;

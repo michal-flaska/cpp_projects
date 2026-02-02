@@ -1,4 +1,5 @@
-// Write a function that reverses the words in a string (but not the characters in each word).
+// Write a function that reverses the words in a string (but not the characters
+// in each word).
 
 // Examples:
 // - "hello world" → "world hello"
@@ -23,9 +24,4 @@
 #include <iostream>
 #include <string>
 
-int main(){
-
-
-
-        return 0;
-}
+int main() { return 0; }

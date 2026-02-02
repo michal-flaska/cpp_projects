@@ -9,13 +9,16 @@
 // {1, 2}     {3, 1}
 // {3, 4}  →  {4, 2}
 
-// Function: std::vector<std::vector<int>> rotateMatrix(std::vector<std::vector<int>> matrix)
+// Function: std::vector<std::vector<int>>
+// rotateMatrix(std::vector<std::vector<int>> matrix)
 
 // Hints:
-// - Element at position [row][col] moves to position [col][n-1-row] where n is matrix size
+// - Element at position [row][col] moves to position [col][n-1-row] where n is
+// matrix size
 // - Create a new result matrix of same size
 // - Loop through original, place each element in its new position
-// - Or think visually: first column becomes first row, second column becomes second row, etc.
+// - Or think visually: first column becomes first row, second column becomes
+// second row, etc.
 
 // Pattern to notice:
 // - matrix[0][0] (1) → result[0][2]
@@ -29,37 +32,32 @@
 // #include <string>
 // #include <algorithm>
 
-void printMatrix(std::vector<std::vector<int>> matrix){
-        for(auto &row : matrix){
-                for(int x : row){
+void printMatrix(std::vector<std::vector<int>> matrix) {
+        for (auto& row : matrix) {
+                for (int x : row) {
                         std::cout << x << ' ';
                 }
                 std::cout << '\n';
-        } // got this from geeksforgeeks.org
+        }  // got this from geeksforgeeks.org
 }
 
-void /* std::vector<std::vector<int>> */ rotateMatrix(std::vector<std::vector<int>> &matrix){
-
+void /* std::vector<std::vector<int>> */
+rotateMatrix(std::vector<std::vector<int>>& matrix) {
         int n = matrix.size();
 
         std::vector<std::vector<int>> result(n, std::vector<int>(n));
 
         for (int i = 0; i < n; i++) {
                 for (int j = 0; j < n; j++) {
-                result[j][n - i - 1] = matrix[i][j];
+                        result[j][n - i - 1] = matrix[i][j];
                 }
         }
 
         matrix = result;
-} // geeksforgeeks.org/dsa/rotate-a-matrix-by-90-degree-in-clockwise-direction-without-using-any-extra-space/
+}  // geeksforgeeks.org/dsa/rotate-a-matrix-by-90-degree-in-clockwise-direction-without-using-any-extra-space/
 
-int main(){
-
-        std::vector<std::vector<int>> matrix = {
-                {1, 2, 3},
-                {4, 5, 6},
-                {7, 8, 9}
-        };
+int main() {
+        std::vector<std::vector<int>> matrix = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
 
         std::cout << "Original Matrix: " << '\n';
         printMatrix(matrix);
@@ -74,10 +72,11 @@ int main(){
 }
 
 // MY PERSONAL NOTES  - i spent more than 1 hour on this shit,
-//                      that's why i decided to look up the solution on geeksforgeeks.org
-//                      im just dumb i guess
+//                      that's why i decided to look up the solution on
+//                      geeksforgeeks.org im just dumb i guess
 
-// A matrix is just a 2D vector - a vector of vectors. (Or a 2D Array if you dont want to use vectors)
+// A matrix is just a 2D vector - a vector of vectors. (Or a 2D Array if you
+// dont want to use vectors)
 
 // Think of it as a grid:
 

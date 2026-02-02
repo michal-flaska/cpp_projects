@@ -6,31 +6,29 @@
 
 // Function: bool isAllDigits(std::string s)
 
-// Hint: Characters '0' through '9' have specific ASCII values. Check if each character is between '0' and '9'.
+// Hint: Characters '0' through '9' have specific ASCII values. Check if each
+// character is between '0' and '9'.
 
 #include <iostream>
 #include <string>
 
-bool isAllDigits(std::string s){
-
+bool isAllDigits(std::string s) {
         int count = 0;
 
-        for(int i = 0; i < s.length(); i++){
-                if(s[i] >= 48 && s[i] <= 57) { // https://www.ascii-code.com/
+        for (int i = 0; i < s.length(); i++) {
+                if (s[i] >= 48 && s[i] <= 57) {  // https://www.ascii-code.com/
                         count++;
                 }
         }
 
-        if(count == s.length()){
+        if (count == s.length()) {
                 return true;
-        }
-        else{
+        } else {
                 return false;
         }
 }
 
-int main(){
-
+int main() {
         std::string s = "12a68";
 
         std::cout << isAllDigits(s);

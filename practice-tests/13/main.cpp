@@ -8,7 +8,8 @@
 // Function: std::vector<int> rotateArray(std::vector<int> arr, int k)
 
 // Hints:
-// - If k is larger than array size, use k % arr.size() (rotating by size brings you back to start)
+// - If k is larger than array size, use k % arr.size() (rotating by size brings
+// you back to start)
 // - Think about which elements move where
 // - You could create a new vector and place elements in their new positions
 // - Element at index i moves to index (i + k) % arr.size()
@@ -17,35 +18,33 @@
 // #include <string>
 #include <vector>
 
-std::vector<int> rotateArray(std::vector<int> v, int k){
-
+std::vector<int> rotateArray(std::vector<int> v, int k) {
         std::vector<int> result = {};
 
         k = k % v.size();
 
-        for(int i = v.size() - k; i < v.size(); i++){
+        for (int i = v.size() - k; i < v.size(); i++) {
                 result.push_back(v[i]);
         }
 
-        for(int i = 0; i < v.size() - k; i++){
+        for (int i = 0; i < v.size() - k; i++) {
                 result.push_back(v[i]);
         }
 
         return result;
 }
 
-void printVector(std::vector<int> v){
+void printVector(std::vector<int> v) {
         std::cout << "{";
-        for(int i = 0; i < v.size(); i++){
+        for (int i = 0; i < v.size(); i++) {
                 std::cout << v[i];
-                if(i < v.size() - 1) std::cout << ", ";
+                if (i < v.size() - 1)
+                        std::cout << ", ";
         }
         std::cout << "}";
 }
 
-
-int main(){
-
+int main() {
         std::vector<int> v = {1, 2, 3, 4, 5};
         int k = 2;
 

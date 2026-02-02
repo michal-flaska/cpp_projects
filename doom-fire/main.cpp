@@ -1,11 +1,10 @@
-#include <iostream>
-#include <vector>
-#include <cstdlib>
-#include <thread>
 #include <chrono>
+#include <cstdlib>
+#include <iostream>
+#include <thread>
+#include <vector>
 
-int main()
-{
+int main() {
         const int w = 80;
         const int h = 30;
 
@@ -17,14 +16,11 @@ int main()
 
         std::cout << "\033[2J\033[?25l";
 
-        while (true)
-        {
+        while (true) {
                 std::cout << "\033[H";
 
-                for (int y = 0; y < h - 1; y++)
-                {
-                        for (int x = 0; x < w; x++)
-                        {
+                for (int y = 0; y < h - 1; y++) {
+                        for (int x = 0; x < w; x++) {
                                 int below = fire[(y + 1) * w + x];
                                 int decay = std::rand() % 3;
                                 int val = below - decay;

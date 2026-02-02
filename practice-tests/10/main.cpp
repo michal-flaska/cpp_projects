@@ -1,4 +1,5 @@
-// Write a function that finds the first non-repeating character in a string. Return the character. If all characters repeat, return ' ' (space).
+// Write a function that finds the first non-repeating character in a string.
+// Return the character. If all characters repeat, return ' ' (space).
 
 // "leetcode" -> 'l' (appears once)
 // "aabbcc" -> ' ' (all repeat)
@@ -10,11 +11,11 @@
 // - For each character, count how many times it appears in the string
 // - Return the first one that appears exactly once
 
-#include "first_unique.h"
 #include <iostream>
 
-int main(){
+#include "first_unique.h"
 
+int main() {
         std::string s = "leetcode";
 
         std::cout << firstUnique(s);

@@ -1,11 +1,5 @@
 #include <iostream>
 
-class Player
-{
-};
+class Player {};
 
-int main()
-{
-
-        return 0;
-}
+int main() { return 0; }

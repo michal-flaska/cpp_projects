@@ -5,7 +5,8 @@
 // - {1, 2, 3} and {4, 5} → {1, 2, 3, 4, 5}
 // - {5, 10} and {1, 3, 7} → {1, 3, 5, 7, 10}
 
-// Function: std::vector<int> mergeSorted(std::vector<int> v1, std::vector<int> v2)
+// Function: std::vector<int> mergeSorted(std::vector<int> v1, std::vector<int>
+// v2)
 
 // Hints:
 // - Both input vectors are already sorted
@@ -21,14 +22,14 @@
 // - Only 4 left → add 4
 // - Result: {1, 2, 3, 4}
 
-// Don't use std::sort() - that defeats the point. Use the fact that both are already sorted.
+// Don't use std::sort() - that defeats the point. Use the fact that both are
+// already sorted.
 
 #include <iostream>
 #include <vector>
 // #include <algorithm>
 
 std::vector<int> mergeSorted(std::vector<int> v1, std::vector<int> v2) {
-
         std::vector<int> result;
 
         result.reserve(v1.size() + v2.size());
@@ -39,8 +40,7 @@ std::vector<int> mergeSorted(std::vector<int> v1, std::vector<int> v2) {
                 if (v1[i] <= v2[j]) {
                         result.push_back(v1[i]);
                         ++i;
-                }
-                else {
+                } else {
                         result.push_back(v2[j]);
                         ++j;
                 }
@@ -59,18 +59,17 @@ std::vector<int> mergeSorted(std::vector<int> v1, std::vector<int> v2) {
         return result;
 }
 
-void printVector(std::vector<int> v){ // copypasted this from problem 13
+void printVector(std::vector<int> v) {  // copypasted this from problem 13
         std::cout << "{";
-        for(int i = 0; i < v.size(); i++){
+        for (int i = 0; i < v.size(); i++) {
                 std::cout << v[i];
-                if(i < v.size() - 1) std::cout << ", ";
+                if (i < v.size() - 1)
+                        std::cout << ", ";
         }
         std::cout << "}";
 }
 
-
-int main(){
-
+int main() {
         std::vector<int> v1 = {1, 3, 5};
         std::vector<int> v2 = {2, 4, 6};
 

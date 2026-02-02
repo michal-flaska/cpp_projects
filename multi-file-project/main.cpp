@@ -1,8 +1,8 @@
 #include <iostream>
+
 #include "utils.h"
 
-int main()
-{
+int main() {
         std::cout << add(5, 3) << std::endl;
         return 0;
 }

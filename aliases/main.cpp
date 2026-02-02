@@ -1,10 +1,8 @@
 #include <iostream>
-#include <vector>
 #include <string>
+#include <vector>
 
-int main()
-{
-
+int main() {
         using PlayerID = uint64_t;
         using Position = std::pair<float, float>;
 

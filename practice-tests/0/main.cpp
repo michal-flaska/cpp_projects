@@ -52,7 +52,8 @@ int main(){
 */
 
 /*
-// Ask user for a number, print a square of stars that size (5 -> 5x5 grid of stars)
+// Ask user for a number, print a square of stars that size (5 -> 5x5 grid of
+stars)
 
 #include <iostream>
 

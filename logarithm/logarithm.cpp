@@ -1,8 +1,7 @@
-#include <iostream>
 #include <cmath>
+#include <iostream>
 
-int main()
-{
+int main() {
         // Natural log (base e)
         double ln = log(10);
         std::cout << "ln(10) = " << ln << std::endl;
@@ -18,7 +17,7 @@ int main()
         // Custom base (like my homework)
         // log_base(value) = ln(value) / ln(base)
         double base = 64;
-        double value = 0.25; // 1/4
+        double value = 0.25;  // 1/4
         double result = log(value) / log(base);
         std::cout << "log_64(1/4) = " << result << std::endl;
 

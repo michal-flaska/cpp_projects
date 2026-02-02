@@ -1,13 +1,11 @@
+#include <chrono>
 #include <iostream>
 #include <thread>
-#include <chrono>
 
 void countdown(int i);
 void countToInfinity(int startingNumber, bool willCountToInfinity);
 
-int main()
-{
-
+int main() {
         bool willCountToInfinity = true;
         int startingNumber = 0;
         int i = 10;
@@ -18,14 +16,11 @@ int main()
         return 0;
 }
 
-void countdown(int i)
-{
-
+void countdown(int i) {
         std::cout << "Starting counting to infinity in:" << '\n';
         std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 
-        for (i; i > 0; i--)
-        {
+        for (i; i > 0; i--) {
                 std::cout << i << '\n';
                 std::this_thread::sleep_for(std::chrono::seconds(1));
         }
@@ -34,11 +29,8 @@ void countdown(int i)
         std::this_thread::sleep_for(std::chrono::seconds(1));
 }
 
-void countToInfinity(int startingNumber, bool willCountToInfinity)
-{
-
-        do
-        {
+void countToInfinity(int startingNumber, bool willCountToInfinity) {
+        do {
                 std::cout << startingNumber++ << '\n';
         } while (willCountToInfinity == true);
 }

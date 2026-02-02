@@ -1,17 +1,16 @@
 #include <iostream>
-#include <iostream>
 
-std::string xor_strings(const std::string &text, const std::string &key)
-{
+std::string xor_strings(const std::string& text, const std::string& key) {
         std::string result = text;
 
-        for (size_t i = 0; i < text.length(); i++)
-        {
+        for (size_t i = 0; i < text.length(); i++) {
                 result[i] = text[i] ^ key[i % key.length()];
 
-                // im using modulo (% key.length()) to repeat the key if its shorter than the text
+                // im using modulo (% key.length()) to repeat the key if its shorter than
+                // the text
 
-                // the `% key.length()` makes it work even if the key is shorter. it wraps around
+                // the `% key.length()` makes it work even if the key is shorter. it wraps
+                // around
 
                 // example:
                 // - text: "hello world" (11 chars)
@@ -25,7 +24,8 @@ std::string xor_strings(const std::string &text, const std::string &key)
                 // - o ^ b (i=4, 4%3=1)
                 // - etc.
 
-                // the key just repeats until it covers the whole text. that's standard for XOR encryption.
+                // the key just repeats until it covers the whole text. that's standard for
+                // XOR encryption.
         }
 
         return result;
@@ -33,11 +33,10 @@ std::string xor_strings(const std::string &text, const std::string &key)
 
 // -------------------------------------------------------------------------------------
 
-int main()
-{
-        int a = 5;     // 0101 in binary
-        int b = 3;     // 0011 in binary
-        int c = a ^ b; // 0110 = 6
+int main() {
+        int a = 5;      // 0101 in binary
+        int b = 3;      // 0011 in binary
+        int c = a ^ b;  // 0110 = 6
 
         // Bit by bit:
         // 0^0=0, 1^0=1, 0^1=1, 1^1=0
@@ -54,7 +53,8 @@ int main()
                   << '\n';
 
         // -----------------------------------------------------------------------------
-        // unfortunately, you can not xor strings so easily like you can string integers
+        // unfortunately, you can not xor strings so easily like you can string
+        // integers
         // -----------------------------------------------------------------------------
 
         std::string x = "hello world";
