@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-#include "notes.h"
+#include "pitches.h"
 
 // just a little note to myself:
 // Beep() maxes out at around 32767 Hz,
