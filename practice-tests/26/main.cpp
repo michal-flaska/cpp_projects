@@ -24,44 +24,23 @@
 #include <iostream>
 #include <vector>
 
-void reverseVector(std::vector<int> &v) {        // https://www.wscubetech.com/resources/cpp/programs/reverse-array
-                                                // because im a dumb fuck and i always forget how to reverse an array
+std::string toBinary(int n) {
+        if (n == 0) return "0";
 
-        int size = v.size();
+        std::string result = "";
 
-        for (int i = 0; i < size / 2; i++) {
-                int temp = v[i];
-                v[i] = v[size - 1 - i];
-                v[size - 1 - i] = temp;
-        }
-}
-
-std::vector<int> convertToBinary(int n){
-
-        std::vector<int> partialResult = {};
-
-        int remainder;
-
-        while(n != 0){
-                remainder = n % 2;
+        while (n != 0) {
+                result = std::to_string(n % 2) + result;
                 n = n / 2;
-                partialResult.push_back(remainder);
         }
 
-        return partialResult;
+        return result;
 }
 
-int main(){
+int main() {
+        int n = 10;  // 1010
 
-        int n = 10; // 1010
-
-        std::vector<int> partialBinaryNumber = convertToBinary(n);
-
-        reverseVector(partialBinaryNumber);
-
-        for(int i = 0; i < partialBinaryNumber.size(); i++){
-                std::cout << partialBinaryNumber[i];
-        }
+        std::cout << toBinary(n);
 
         return 0;
 }
