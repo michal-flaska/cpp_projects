@@ -23,5 +23,41 @@
 
 #include <iostream>
 #include <string>
+#include <vector>
 
-int main() { return 0; }
+std::string reverseWords(std::string s) {
+        std::vector<std::string> words;
+        std::string currentWord = "";
+
+        // extract words (same as problem 8)
+        for (int i = 0; i < s.size(); i++) {
+                if (s[i] == ' ') {
+                        if (!currentWord.empty()) {
+                                words.push_back(currentWord);
+                                currentWord.clear();
+                        }
+                } else {
+                        currentWord += s[i];
+                }
+        }
+        if (!currentWord.empty()) words.push_back(currentWord);  // last word
+
+        // create result string
+        std::string result = "";
+
+        // build result backwards
+        for (int i = words.size() - 1; i >= 0; i--) {
+                result += words[i];
+                if (i > 0) result += " ";
+        }
+
+        return result;
+}
+
+int main() {
+        std::string s = "one two three";
+
+        std::cout << reverseWords(s);
+
+        return 0;
+}
