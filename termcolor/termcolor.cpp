@@ -4,7 +4,7 @@
 
 int main() {
         std::cout << termcolor::red << "Hello " << termcolor::green << "World"
-                  << termcolor::reset << std::endl;
+                  << termcolor::reset << '\n';
 }
 
 // https://github.com/ikalnytskyi/termcolor
