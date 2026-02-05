@@ -22,7 +22,7 @@ std::vector<int> removeDuplicates(std::vector<int> v){  // basically almost same
         std::vector<int> result = {};
 
         for(int i = 0; i < v.size(); i++){
-                char c = v[i];
+                int c = v[i];
                 bool seenBefore = false;
                 for(int j = 0; j < i; j++){
                         if(c == v[j]){
