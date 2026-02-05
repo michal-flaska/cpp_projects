@@ -37,7 +37,6 @@ std::vector<int> removeDuplicates(std::vector<int> v){  // basically almost same
         }
 
         return result;
-
 }
 
 void printVector(std::vector<int> v) {  // copypasted this from problem 13, 14, 15, etc.
