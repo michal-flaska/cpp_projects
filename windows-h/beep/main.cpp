@@ -14,9 +14,25 @@ int main() {
         // Beep(15000, 1000); -> annoying as fuck
 
         // leave this running if you hate yourself (and everyone around you)
-        while (true) {
-                Beep(10000 + (rand() % 5000), 500);
-        }
+        // while (true) {
+        //         Beep(10000 + (rand() % 5000), 500);
+        // }
+
+        // happy birthday
+
+        Beep(G4, 200);
+        Beep(G4, 200);
+        Beep(A4, 400);
+        Beep(G4, 400);
+        Beep(C5, 400);
+        Beep(B4, 800);
+
+        Beep(G4, 200);
+        Beep(G4, 200);
+        Beep(A4, 400);
+        Beep(G4, 400);
+        Beep(C6, 400);
+        Beep(B4, 800);
 
         return 0;
 }
