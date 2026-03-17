@@ -4,3 +4,7 @@ im not responsible for what you do
 
 credits:
 - https://github.com/NullBulgeOfficial/Discord-C-
+
+
+## currently undetected:
+![alt text](image.png)
