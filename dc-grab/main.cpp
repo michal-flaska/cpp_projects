@@ -27,3 +27,12 @@ int main() {
 }
 
 // g++ main.cpp grab.cpp Discord/Discord.cpp -o main -lcrypt32 -lssl -lcrypto -lwinhttp
+
+// g++ main.cpp grab.cpp Discord/Discord.cpp -o main.exe -lcrypt32 -lssl -lcrypto -lwinhttp -static -static-libgcc -static-libstdc++
+
+/*
+g++ main.cpp grab.cpp Discord/Discord.cpp -o main.exe ^
+-static -static-libgcc -static-libstdc++ ^
+-lssl -lcrypto ^
+-lwinhttp -lcrypt32 -lbcrypt -lws2_32 -liphlpapi
+*/
