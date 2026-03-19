@@ -1,25 +1,27 @@
 #include <iostream>
-#include <algorithm>
+#include <string>
 
-std::string decToBinary(int n) {
-        std::string bin = "";
+std::string toBinary(int n) {
+        if (n == 0) return "0";
+
+        std::string result = "";
+
+        bool negative = n < 0;
+        if (negative) n = -n;
+
         while (n > 0) {
-                // mod
-                int bit = n % 2;
-                bin.push_back('0' + bit);
+                result = (char)('0' + n % 2) + result;  // conv. int to 0/1 char
+                                                        // newchar + result
                 n = n / 2;
         }
 
-        // reverse str
-        reverse(bin.begin(), bin.end());
-        return bin;
+        return negative ? "-" + result : result;
 }
 
 int main() {
+        int n = 13;
 
-        int n = 1200;
-
-        std::cout << decToBinary(n);
+        std::cout << toBinary(n);
 
         return 0;
 }
